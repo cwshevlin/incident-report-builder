@@ -8,6 +8,11 @@
 booleans = [true, false]
 grades = ["K", "1", "2", "3", "4", "5"]
 
+def random_teacher
+	id = rand(Teacher.count)
+	Teacher.offset(id).first
+end
+
 for i in 1..30
 	Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: grades.sample, iep: booleans.sample)
 end
@@ -15,5 +20,6 @@ end
 for i in 1..5
 	Teacher.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: i.to_s )
 end
+
 
 
