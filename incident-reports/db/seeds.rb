@@ -7,6 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 booleans = [true, false]
 grades = ["K", "1", "2", "3", "4", "5"]
+locations = ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"]
+contexts = ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"]
+
 
 def random_teacher
 	id = rand(Teacher.count)
@@ -23,7 +26,9 @@ for i in 1..30
 	teacher << student
 end
 
-
+30.times do
+	Incident.create(creator_id: random_teacher, location: location.sample, date: Faker::Date.backward(14), time: Faker::Time.backward(14.days.ago, :evening), context: contexts.sample, narrative: Faker::Lorem.paragraph(2, true, 3))
+end
 
 
 
