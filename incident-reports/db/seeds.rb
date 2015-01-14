@@ -13,13 +13,20 @@ def random_teacher
 	Teacher.offset(id).first
 end
 
-for i in 1..30
-	Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: grades.sample, iep: booleans.sample)
-end
-
 for i in 1..5
 	Teacher.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: i.to_s )
 end
+
+for i in 1..30
+	student = Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: grades.sample, iep: booleans.sample)
+	teacher = Teacher.find_by_id(rand(5)+1)
+	teacher << student
+end
+
+
+
+
+
 
 
 
