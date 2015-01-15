@@ -5,7 +5,7 @@ class CreateStudentIncidents < ActiveRecord::Migration
     	t.integer :incident_id
     	t.string :duration
     	t.string :expectation_violated
-    	t.string :major_or_minor
+    	t.string :severity
     	t.string :motivation
     	t.text   :consequence
 

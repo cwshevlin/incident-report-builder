@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150112024953) do
     t.integer  "incident_id"
     t.string   "duration"
     t.string   "expectation_violated"
-    t.string   "major_or_minor"
+    t.string   "severity"
     t.string   "motivation"
     t.text     "consequence"
     t.datetime "created_at"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150112024953) do
   end
 
   create_table "students", force: true do |t|
+    t.integer  "teacher_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "grade"
