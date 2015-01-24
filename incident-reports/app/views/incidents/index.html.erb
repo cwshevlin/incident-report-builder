@@ -1,0 +1,11 @@
+<h1> All Incidents </h1>
+
+<% @incidents.each do |incident| %>
+	<h3><%= incident.location %> on <%= incident.date %></h3>
+	<h5> Students involved:</h5>
+	<ul>
+		<% incident.students.each do |student| %>
+		<li><%= student.first_name %> <%= student.last_name %></li>
+	<% end %>
+	</ul>
+<% end %>
