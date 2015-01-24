@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  root 'sessions#index'
   resources :incidents, :students
   resources :teachers # module: 'admin'
+
 end

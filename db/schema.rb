@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124163030) do
+ActiveRecord::Schema.define(version: 20150124210327) do
 
   create_table "incidents", force: true do |t|
     t.integer  "creator_id"
     t.string   "date_time"
-    t.string   "expectation_violated"
+    t.text     "expectation_violated", limit: 255
     t.string   "major_or_minor"
     t.text     "anecdote"
     t.string   "location"
