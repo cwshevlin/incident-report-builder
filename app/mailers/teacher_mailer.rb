@@ -3,7 +3,7 @@ class TeacherMailer < ActionMailer::Base
 
   def welcome_email(teacher)
   	@teacher = teacher
-  	mail(to: @teacher.email, subject: 'Welcome to Stucco')
+  	mail(to: @teacher.email, subject: 'Welcome to Stucco!')
   end
 
 end
