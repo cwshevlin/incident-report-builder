@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20150124210327) do
     t.string   "location"
     t.string   "context"
     t.string   "duration"
-    t.string   "possible_function"
-    t.string   "staff_responses"
-    t.string   "effect_on_behavior"
+    t.text     "possible_function"
+    t.text     "staff_responses"
+    t.text     "effect_on_behavior"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150124210327) do
   create_table "teachers", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "grade"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
