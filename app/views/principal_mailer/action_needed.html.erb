@@ -1,0 +1,8 @@
+<h1>Incident created by <%= @incident.creator%> at <%= @incident.date_time %></h3>
+<br>
+<h3> Students involved: </h3>
+<% @incident.students.each do |student|%>
+	<h5><%= student.first_name %> <%= student.last_name %></h5>
+<% end %>
+<p><%= @incident.anecdote %></p>
+<p><%= @incident.staff_responses %></p>

@@ -1,4 +1,4 @@
-class UserMailer < ActionMailer::Base
+class TeacherMailer < ActionMailer::Base
   default from: "no-reply@stuccostuc.co"
 
   def welcome_email(teacher)
@@ -6,5 +6,4 @@ class UserMailer < ActionMailer::Base
   	mail(to: @teacher.email, subject: 'Welcome to Stucco')
   end
 
-  
 end
