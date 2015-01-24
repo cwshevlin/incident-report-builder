@@ -3,11 +3,6 @@ class CreateStudentIncidents < ActiveRecord::Migration
     create_table :student_incidents do |t|
     	t.integer :student_id
     	t.integer :incident_id
-    	t.string :duration
-    	t.string :expectation_violated
-    	t.string :severity
-    	t.string :motivation
-    	t.text   :consequence
 
       t.timestamps
     end
