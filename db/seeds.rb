@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-booleans = [true, false]
 grades = ["K", "1", "2", "3", "4", "5"]
 locations = ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"]
 contexts = ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"]
@@ -37,14 +36,14 @@ for i in 1..5
 end
 
 for i in 1..30
-	student = Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: grades.sample, iep: booleans.sample)
+	student = Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: grades.sample)
 	teacher = Teacher.find_by_id(rand(5)+1)
 	student.teacher_id = teacher.id
 	student.save
 end
 
 30.times do
-	Incident.create(creator_id: random_teacher.id, location: locations.sample, date_time: "#{Faker::Date.backward(14)}, #{Faker::Time.backward(14, :evening)}", context: contexts.sample, anecdote: Faker::Lorem.paragraph(2, true, 3), expectation_violated: expectations.sample, major_or_minor: severity.sample, duration: durations.sample, possible_function: motivations.sample, staff_responses: consequences.sample, effect_on_behavior: effects.sample)
+	Incident.create(creator_id: random_teacher.id, location: locations.sample, date_time: "#{Faker::Time.backward(14, :evening)}", context: contexts.sample, anecdote: Faker::Lorem.paragraph(2, true, 3), expectation_violated: expectations.sample, major_or_minor: severity.sample, duration: durations.sample, possible_function: motivations.sample, staff_responses: consequences.sample, effect_on_behavior: effects.sample)
 end
 
 30.times do 
