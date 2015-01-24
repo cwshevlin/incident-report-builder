@@ -1,1 +1,5 @@
-index.html.erb
+<h1>All Teachers</h1>
+
+<% @teachers.each do |teacher| %>
+	<p><%= teacher.first_name %> <%= teacher.last_name %></p>
+<% end %>

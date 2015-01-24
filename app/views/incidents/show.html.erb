@@ -1,1 +1,12 @@
 <h1>Incident created at <%=@incident.created_at%> by <%=@incident.teacher%></h1>
+
+<p> Time of incident: <%= @incident.date_time %></p>
+<p> Expectation violated: <%= @incident.expectation_violated %></p>
+<p> Severity: <%= @incident.major_or_minor %></p>
+<p> Location: <%= @incident.location%></p>
+<p> Context: <%= @incident.context%></p>
+<p> Duration: <%= @incident.duration%></p>
+<p> Possible Function: <%= @incident.possible_function%></p>
+<p> Staff Responses: <%= @incident.staff_responses%></p>
+<p> Effect on Behavior: <%= @incident.effect_on_behavior%></p>
+<p> Anecdote: <%= @incident.anecdote %></p>
