@@ -14,6 +14,7 @@ expectations = ["Successful", "Organized", "Achieving", "Respectful"]
 severity = ["minor", "major"]
 motivations = ["Obtain peer attention", "Obtain adult attention", "Obtain items/activities", "Obtain sensory input", "Avoid peers", "Avoid adult", "Avoid task/activity", "Avoid sensory input", "Emoting", "Unable to determine", "Other"]
 consequences = ["In-school suspension", "Out-of-school suspension", "Phone call home", "No TV for a month"]
+effects = ["Student stopped behavior", "Student continued behavior"]
 
 
 def random_teacher
@@ -43,11 +44,11 @@ for i in 1..30
 end
 
 30.times do
-	Incident.create(creator_id: random_teacher.id, location: locations.sample, date: Faker::Date.backward(14), time: Faker::Time.backward(14, :evening), context: contexts.sample, narrative: Faker::Lorem.paragraph(2, true, 3))
+	Incident.create(creator_id: random_teacher.id, location: locations.sample, date_time: "#{Faker::Date.backward(14)}, #{Faker::Time.backward(14, :evening)}", context: contexts.sample, anecdote: Faker::Lorem.paragraph(2, true, 3), expectation_violated: expectations.sample, major_or_minor: severity.sample, duration: durations.sample, possible_function: motivations.sample, staff_responses: consequences.sample, effect_on_behavior: effects.sample)
 end
 
 30.times do 
-	student_incident = StudentIncident.create(duration: durations.sample, expectation_violated: expectations.sample, severity: severity.sample, motivation: motivations.sample, consequence: consequences.sample)
+	student_incident = StudentIncident.create
 	incident = random_incident
 	student = random_student
 	student_incident.incident_id = incident.id
