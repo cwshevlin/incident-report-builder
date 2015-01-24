@@ -31,7 +31,8 @@ class IncidentsController < ApplicationController
 	end
 
 	def delete
-
+		@incident.destroy
+		redirect_to incident_path
 	end
 
 
