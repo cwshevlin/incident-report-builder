@@ -54,5 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get 'incidents/' => 'incidents#index'
+  resources :incidents, :students
+  resources :teacher, module: 'admin'
+
 end

@@ -7675,3 +7675,709 @@ Migrating to CreateSchools (20150124163030)
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 30[0m  [["incident_id", 6], ["student_id", 4], ["updated_at", "2015-01-24 16:35:05.699385"]]
   [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateStudents (20150112024122)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "teacher_id" integer, "first_name" varchar(255), "last_name" varchar(255), "grade" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150112024122"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateTeachers (20150112024157)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "grade" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150112024157"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreateIncidents (20150112024900)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "incidents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "creator_id" integer, "date_time" varchar(255), "expectation_violated" varchar(255), "major_or_minor" varchar(255), "anecdote" text, "location" varchar(255), "context" varchar(255), "duration" varchar(255), "possible_function" varchar(255), "staff_responses" varchar(255), "effect_on_behavior" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150112024900"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Migrating to CreateStudentIncidents (20150112024953)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "student_incidents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "incident_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150112024953"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateSchools (20150124163030)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schools" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "principal_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150124163030"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "teachers" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.398563"], ["first_name", "Sigrid"], ["grade", "1"], ["last_name", "Huel"], ["updated_at", "2015-01-24 16:55:16.398563"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.403476"], ["first_name", "Garth"], ["grade", "2"], ["last_name", "Kozey"], ["updated_at", "2015-01-24 16:55:16.403476"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.405775"], ["first_name", "Meda"], ["grade", "3"], ["last_name", "Nitzsche"], ["updated_at", "2015-01-24 16:55:16.405775"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "teachers" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.407636"], ["first_name", "Marcia"], ["grade", "4"], ["last_name", "Doyle"], ["updated_at", "2015-01-24 16:55:16.407636"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.410068"], ["first_name", "Keegan"], ["grade", "5"], ["last_name", "Fisher"], ["updated_at", "2015-01-24 16:55:16.410068"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.430024"], ["first_name", "Emmanuel"], ["grade", "5"], ["last_name", "Dibbert"], ["updated_at", "2015-01-24 16:55:16.430024"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.2ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 1  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.436830"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.439323"], ["first_name", "Ethan"], ["grade", "K"], ["last_name", "Aufderhar"], ["updated_at", "2015-01-24 16:55:16.439323"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 2[0m  [["teacher_id", 2], ["updated_at", "2015-01-24 16:55:16.441649"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.443657"], ["first_name", "Trey"], ["grade", "4"], ["last_name", "Olson"], ["updated_at", "2015-01-24 16:55:16.443657"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 2 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 3  [["teacher_id", 2], ["updated_at", "2015-01-24 16:55:16.445865"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.447601"], ["first_name", "Zelma"], ["grade", "5"], ["last_name", "Johnson"], ["updated_at", "2015-01-24 16:55:16.447601"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 4[0m  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.449726"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.451375"], ["first_name", "Gene"], ["grade", "2"], ["last_name", "Koelpin"], ["updated_at", "2015-01-24 16:55:16.451375"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 5  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.453597"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.455379"], ["first_name", "Rae"], ["grade", "1"], ["last_name", "Barton"], ["updated_at", "2015-01-24 16:55:16.455379"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 6[0m  [["teacher_id", 1], ["updated_at", "2015-01-24 16:55:16.457447"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.459118"], ["first_name", "Daisha"], ["grade", "5"], ["last_name", "Champlin"], ["updated_at", "2015-01-24 16:55:16.459118"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 7  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.461138"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.463078"], ["first_name", "Selmer"], ["grade", "3"], ["last_name", "Halvorson"], ["updated_at", "2015-01-24 16:55:16.463078"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 8[0m  [["teacher_id", 3], ["updated_at", "2015-01-24 16:55:16.465280"]]
+  [1m[35m (32.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.499558"], ["first_name", "Edwina"], ["grade", "5"], ["last_name", "Konopelski"], ["updated_at", "2015-01-24 16:55:16.499558"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 9  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.502842"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.504586"], ["first_name", "Freda"], ["grade", "5"], ["last_name", "Mann"], ["updated_at", "2015-01-24 16:55:16.504586"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 10[0m  [["teacher_id", 3], ["updated_at", "2015-01-24 16:55:16.506748"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.508395"], ["first_name", "Baron"], ["grade", "5"], ["last_name", "Kling"], ["updated_at", "2015-01-24 16:55:16.508395"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 11  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.510732"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.512617"], ["first_name", "Levi"], ["grade", "2"], ["last_name", "Kuhn"], ["updated_at", "2015-01-24 16:55:16.512617"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 12[0m  [["teacher_id", 3], ["updated_at", "2015-01-24 16:55:16.514775"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.516482"], ["first_name", "Tatyana"], ["grade", "4"], ["last_name", "Lesch"], ["updated_at", "2015-01-24 16:55:16.516482"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 13  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.518502"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.520323"], ["first_name", "Mollie"], ["grade", "K"], ["last_name", "Larkin"], ["updated_at", "2015-01-24 16:55:16.520323"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 14[0m  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.522508"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.524200"], ["first_name", "Katharina"], ["grade", "K"], ["last_name", "Hessel"], ["updated_at", "2015-01-24 16:55:16.524200"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.2ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 15  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.527032"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.529427"], ["first_name", "Arnold"], ["grade", "K"], ["last_name", "Reynolds"], ["updated_at", "2015-01-24 16:55:16.529427"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 16[0m  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.532131"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.534167"], ["first_name", "Rubye"], ["grade", "5"], ["last_name", "Koss"], ["updated_at", "2015-01-24 16:55:16.534167"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 17  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.536259"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.537830"], ["first_name", "Elroy"], ["grade", "3"], ["last_name", "Hansen"], ["updated_at", "2015-01-24 16:55:16.537830"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 18[0m  [["teacher_id", 3], ["updated_at", "2015-01-24 16:55:16.539815"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.541685"], ["first_name", "Nathan"], ["grade", "4"], ["last_name", "Ratke"], ["updated_at", "2015-01-24 16:55:16.541685"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 2 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 19  [["teacher_id", 2], ["updated_at", "2015-01-24 16:55:16.543840"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.545526"], ["first_name", "Claudine"], ["grade", "4"], ["last_name", "Durgan"], ["updated_at", "2015-01-24 16:55:16.545526"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 20[0m  [["teacher_id", 1], ["updated_at", "2015-01-24 16:55:16.547559"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.549156"], ["first_name", "Kelsie"], ["grade", "4"], ["last_name", "O'Kon"], ["updated_at", "2015-01-24 16:55:16.549156"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.2ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 21  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.551474"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.553335"], ["first_name", "Alexandre"], ["grade", "3"], ["last_name", "Ferry"], ["updated_at", "2015-01-24 16:55:16.553335"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 22[0m  [["teacher_id", 2], ["updated_at", "2015-01-24 16:55:16.555445"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.557146"], ["first_name", "Nash"], ["grade", "3"], ["last_name", "Adams"], ["updated_at", "2015-01-24 16:55:16.557146"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 23  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.559145"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.560660"], ["first_name", "Meghan"], ["grade", "K"], ["last_name", "Cormier"], ["updated_at", "2015-01-24 16:55:16.560660"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 3 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 24[0m  [["teacher_id", 3], ["updated_at", "2015-01-24 16:55:16.563087"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.564760"], ["first_name", "Isidro"], ["grade", "5"], ["last_name", "Ziemann"], ["updated_at", "2015-01-24 16:55:16.564760"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 25  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.566891"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.568665"], ["first_name", "Laron"], ["grade", "2"], ["last_name", "Runolfsdottir"], ["updated_at", "2015-01-24 16:55:16.568665"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 26[0m  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.570686"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.572742"], ["first_name", "Bridie"], ["grade", "1"], ["last_name", "Runolfsson"], ["updated_at", "2015-01-24 16:55:16.572742"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.2ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 27  [["teacher_id", 5], ["updated_at", "2015-01-24 16:55:16.575333"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.577216"], ["first_name", "Ashly"], ["grade", "K"], ["last_name", "Kautzer"], ["updated_at", "2015-01-24 16:55:16.577216"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 28[0m  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.579223"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-24 16:55:16.580886"], ["first_name", "Shane"], ["grade", "K"], ["last_name", "Collier"], ["updated_at", "2015-01-24 16:55:16.580886"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 2 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 29  [["teacher_id", 2], ["updated_at", "2015-01-24 16:55:16.582854"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "first_name", "grade", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-24 16:55:16.584529"], ["first_name", "Cassandra"], ["grade", "2"], ["last_name", "Mayer"], ["updated_at", "2015-01-24 16:55:16.584529"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = 4 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "teacher_id" = ?, "updated_at" = ? WHERE "students"."id" = 30[0m  [["teacher_id", 4], ["updated_at", "2015-01-24 16:55:16.586956"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Ter crudelis sol desino atavus coaegresco curtus. Celer amplus aeternus advoco arceo aegre."], ["context", "Small Group"], ["created_at", "2015-01-24 16:55:16.601403"], ["creator_id", 2], ["date_time", "2015-01-18 18:50:22 -0600"], ["duration", "24 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Recess"], ["major_or_minor", "minor"], ["possible_function", "Obtain adult attention"], ["staff_responses", "Out-of-school suspension"], ["updated_at", "2015-01-24 16:55:16.601403"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Spoliatio doloremque titulus sollicito fugiat creo odio aro. Umbra complectus capio. Qui dolor carmen alias caelestis saepe angulus."], ["context", "Independent Work"], ["created_at", "2015-01-24 16:55:16.605175"], ["creator_id", 1], ["date_time", "2015-01-17 17:42:11 -0600"], ["duration", "4 days"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Successful"], ["location", "Cafeteria"], ["major_or_minor", "major"], ["possible_function", "Avoid sensory input"], ["staff_responses", "No TV for a month"], ["updated_at", "2015-01-24 16:55:16.605175"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Antiquus cenaculum vesica ut. Demum torrens cotidie templum vulgo somniculosus. Arguo audax audacia cattus."], ["context", "Independent Work"], ["created_at", "2015-01-24 16:55:16.608118"], ["creator_id", 2], ["date_time", "2015-01-13 20:33:06 -0600"], ["duration", "10 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Organized"], ["location", "Hallway"], ["major_or_minor", "major"], ["possible_function", "Avoid sensory input"], ["staff_responses", "Out-of-school suspension"], ["updated_at", "2015-01-24 16:55:16.608118"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Aperiam illum ancilla. Pel aro audax alveus. Defessus strues curiositas tamen accommodo."], ["context", "Lunch"], ["created_at", "2015-01-24 16:55:16.611355"], ["creator_id", 3], ["date_time", "2015-01-13 19:15:26 -0600"], ["duration", "2 hours"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Respectful"], ["location", "Cafeteria"], ["major_or_minor", "minor"], ["possible_function", "Obtain adult attention"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.611355"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Absque cilicium sordeo canis est pel conicio. Angulus conduco veritas. Alveus architecto quia ulterius pax concido. Bonus pectus adsum corrigo contra."], ["context", "Recess"], ["created_at", "2015-01-24 16:55:16.614622"], ["creator_id", 1], ["date_time", "2015-01-12 17:11:27 -0600"], ["duration", "1 hour"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Lunchroom"], ["major_or_minor", "major"], ["possible_function", "Obtain adult attention"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.614622"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Optio arma arca conscendo una sto eos. Verto vulariter taceo terebro ipsa despecto. Vomer turba aut amaritudo sollicito usitas eum delectatio."], ["context", "Small Group"], ["created_at", "2015-01-24 16:55:16.617707"], ["creator_id", 5], ["date_time", "2015-01-10 19:18:17 -0600"], ["duration", "5 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Counselor's Office"], ["major_or_minor", "minor"], ["possible_function", "Obtain peer attention"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.617707"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 4
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Censura tener acidus viriliter. Aut stultus curvo provident despecto."], ["context", "Recess"], ["created_at", "2015-01-24 16:55:16.620537"], ["creator_id", 5], ["date_time", "2015-01-23 20:39:08 -0600"], ["duration", "13 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Successful"], ["location", "Bilingual Room"], ["major_or_minor", "minor"], ["possible_function", "Avoid sensory input"], ["staff_responses", "In-school suspension"], ["updated_at", "2015-01-24 16:55:16.620537"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Aro cubicularis caterva canto surculus cura vado quae. Turbo trepide sollers desolo quia. Vomica bellicus balbus arbor adultus dedico."], ["context", "Walking through hallways"], ["created_at", "2015-01-24 16:55:16.623485"], ["creator_id", 5], ["date_time", "2015-01-22 17:50:25 -0600"], ["duration", "24 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Organized"], ["location", "Classroom"], ["major_or_minor", "major"], ["possible_function", "Avoid task/activity"], ["staff_responses", "In-school suspension"], ["updated_at", "2015-01-24 16:55:16.623485"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Agnosco depraedor solitudo decet cornu. Cito thymum despecto statua articulus sed."], ["context", "Small Group"], ["created_at", "2015-01-24 16:55:16.626649"], ["creator_id", 1], ["date_time", "2015-01-20 17:13:08 -0600"], ["duration", "5 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Organized"], ["location", "Counselor's Office"], ["major_or_minor", "major"], ["possible_function", "Unable to determine"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.626649"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Necessitatibus deputo complectus neque. Adfero deleniti tero sed. Cuppedia sequi deduco ustulo adiuvo aveho."], ["context", "Lunch"], ["created_at", "2015-01-24 16:55:16.629816"], ["creator_id", 1], ["date_time", "2015-01-11 21:21:10 -0600"], ["duration", "24 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Achieving"], ["location", "Bilingual Room"], ["major_or_minor", "minor"], ["possible_function", "Obtain sensory input"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.629816"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Valetudo tonsor cultura desparatus ut verumtamen quasi sumo. Ea utor amo ipsa campana crinis."], ["context", "Whole Class"], ["created_at", "2015-01-24 16:55:16.632646"], ["creator_id", 2], ["date_time", "2015-01-15 20:06:46 -0600"], ["duration", "5 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Respectful"], ["location", "Recess"], ["major_or_minor", "major"], ["possible_function", "Avoid sensory input"], ["staff_responses", "Out-of-school suspension"], ["updated_at", "2015-01-24 16:55:16.632646"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Porro attollo sollers totus aegrus et sordeo. Causa ter appello est blandior neque at quibusdam."], ["context", "Independent Work"], ["created_at", "2015-01-24 16:55:16.635837"], ["creator_id", 2], ["date_time", "2015-01-15 17:56:43 -0600"], ["duration", "24 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Achieving"], ["location", "Science Lab"], ["major_or_minor", "minor"], ["possible_function", "Obtain adult attention"], ["staff_responses", "Out-of-school suspension"], ["updated_at", "2015-01-24 16:55:16.635837"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Viduata est usque deduco umbra aspernatur. Conturbo adultus arguo argentum."], ["context", "Independent Work"], ["created_at", "2015-01-24 16:55:16.638837"], ["creator_id", 3], ["date_time", "2015-01-16 20:08:58 -0600"], ["duration", "1 hour"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Respectful"], ["location", "Science Lab"], ["major_or_minor", "minor"], ["possible_function", "Avoid adult"], ["staff_responses", "In-school suspension"], ["updated_at", "2015-01-24 16:55:16.638837"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Cura sordeo considero. Crudelis theca ultra tardus sollers nesciunt. Nesciunt ultio ago vinitor careo cariosus et cumque. Pecto caput tandem atque solio."], ["context", "Lunch"], ["created_at", "2015-01-24 16:55:16.641854"], ["creator_id", 3], ["date_time", "2015-01-23 18:16:19 -0600"], ["duration", "5 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Achieving"], ["location", "Lunchroom"], ["major_or_minor", "major"], ["possible_function", "Obtain sensory input"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.641854"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Pecus averto aeger. Speculum copiose vapulus quisquam aut vitium. Trepide cibo tum suspendo audentia apto. Quia video cinis aeger nisi caveo."], ["context", "Recess"], ["created_at", "2015-01-24 16:55:16.644890"], ["creator_id", 3], ["date_time", "2015-01-17 17:54:36 -0600"], ["duration", "5 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Respectful"], ["location", "Counselor's Office"], ["major_or_minor", "major"], ["possible_function", "Emoting"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.644890"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Sunt quo tenax asperiores defaeco vero umquam. Surgo vis eveniet aegrotatio torrens. Aro claustrum veritatis. Cuius clamo agnosco ambulo suppono tamisium."], ["context", "Independent Work"], ["created_at", "2015-01-24 16:55:16.648161"], ["creator_id", 4], ["date_time", "2015-01-11 20:05:51 -0600"], ["duration", "7 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Lunchroom"], ["major_or_minor", "minor"], ["possible_function", "Emoting"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.648161"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Deripio coepi inventore. Cometes denuo arx ars anser."], ["context", "Whole Class"], ["created_at", "2015-01-24 16:55:16.651595"], ["creator_id", 2], ["date_time", "2015-01-22 21:24:24 -0600"], ["duration", "1 hour"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Successful"], ["location", "Counselor's Office"], ["major_or_minor", "major"], ["possible_function", "Avoid task/activity"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.651595"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Concido uter ducimus conor. Basium viriliter uredo fugit qui. Turbo aetas avaritia vacuus demens. Crustulum odit summopere consequuntur cauda barba umbra."], ["context", "Lunch"], ["created_at", "2015-01-24 16:55:16.654643"], ["creator_id", 5], ["date_time", "2015-01-23 18:28:25 -0600"], ["duration", "7 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Counselor's Office"], ["major_or_minor", "minor"], ["possible_function", "Unable to determine"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.654643"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Derideo pariatur conor ademptio. Cunae pax xiphias adipisci suffoco consequatur delectus. Casso truculenter sopor conscendo at patruus aer. Adversus absum voluptas statim."], ["context", "Independent Work"], ["created_at", "2015-01-24 16:55:16.657589"], ["creator_id", 2], ["date_time", "2015-01-21 21:19:59 -0600"], ["duration", "2 hours"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Respectful"], ["location", "Lunchroom"], ["major_or_minor", "minor"], ["possible_function", "Avoid task/activity"], ["staff_responses", "Out-of-school suspension"], ["updated_at", "2015-01-24 16:55:16.657589"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Est commodo comes curia varietas id. Theca debitis una. Aut verecundia nemo."], ["context", "Walking through hallways"], ["created_at", "2015-01-24 16:55:16.661064"], ["creator_id", 5], ["date_time", "2015-01-17 20:01:43 -0600"], ["duration", "4 days"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Respectful"], ["location", "Computer Lab"], ["major_or_minor", "major"], ["possible_function", "Obtain items/activities"], ["staff_responses", "In-school suspension"], ["updated_at", "2015-01-24 16:55:16.661064"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 2
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Autem vel peior volubilis bibo versus auris. Adficio catena vulpes temperantia laborum apto. Conduco voluptas cultellus textor omnis aperte pel."], ["context", "Whole Class"], ["created_at", "2015-01-24 16:55:16.664557"], ["creator_id", 3], ["date_time", "2015-01-19 17:02:26 -0600"], ["duration", "4 days"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Hallway"], ["major_or_minor", "minor"], ["possible_function", "Unable to determine"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.664557"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Abstergo undique vulnus candidus reiciendis. Copia est pecunia bestia rerum. Delibero alioqui adduco centum asper decens valeo."], ["context", "Small Group"], ["created_at", "2015-01-24 16:55:16.667362"], ["creator_id", 1], ["date_time", "2015-01-15 18:29:47 -0600"], ["duration", "13 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Successful"], ["location", "Counselor's Office"], ["major_or_minor", "minor"], ["possible_function", "Other"], ["staff_responses", "Out-of-school suspension"], ["updated_at", "2015-01-24 16:55:16.667362"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Doloribus adaugeo absorbeo consectetur. Est verto ipsam dedico corpus denuo. Quisquam ullus similique pax amiculum amet turbo. Auditor comitatus vereor antiquus."], ["context", "Transition Time"], ["created_at", "2015-01-24 16:55:16.670358"], ["creator_id", 2], ["date_time", "2015-01-10 17:31:44 -0600"], ["duration", "7 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Organized"], ["location", "Cafeteria"], ["major_or_minor", "minor"], ["possible_function", "Obtain items/activities"], ["staff_responses", "No TV for a month"], ["updated_at", "2015-01-24 16:55:16.670358"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Perspiciatis conitor decens vere. Dolor voluptatum necessitatibus spectaculum cedo inventore astrum ager. Voluptate acceptus delectus templum. Adsidue tactus est."], ["context", "Recess"], ["created_at", "2015-01-24 16:55:16.673621"], ["creator_id", 1], ["date_time", "2015-01-12 21:47:39 -0600"], ["duration", "7 minutes"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Successful"], ["location", "Science Lab"], ["major_or_minor", "minor"], ["possible_function", "Emoting"], ["staff_responses", "In-school suspension"], ["updated_at", "2015-01-24 16:55:16.673621"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Conventus voluptas vestrum vorax ascisco consequatur sunt derideo. Eum suffoco defero tergum socius animus. Testimonium aduro cupio angulus."], ["context", "Walking through hallways"], ["created_at", "2015-01-24 16:55:16.676727"], ["creator_id", 2], ["date_time", "2015-01-22 18:45:42 -0600"], ["duration", "1 hour"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Achieving"], ["location", "Computer Lab"], ["major_or_minor", "minor"], ["possible_function", "Obtain adult attention"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.676727"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Tenus ultio vivo apparatus accommodo adsidue ex. Amiculum depulso omnis qui magni. Amplitudo defero compono."], ["context", "Transition Time"], ["created_at", "2015-01-24 16:55:16.679814"], ["creator_id", 4], ["date_time", "2015-01-19 21:11:48 -0600"], ["duration", "1 hour"], ["effect_on_behavior", "Student continued behavior"], ["expectation_violated", "Successful"], ["location", "Hallway"], ["major_or_minor", "minor"], ["possible_function", "Obtain items/activities"], ["staff_responses", "No TV for a month"], ["updated_at", "2015-01-24 16:55:16.679814"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 3
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Universe quidem summa armo vulgivagus iure sulum. Aut vulgo ambulo considero aspicio vesper."], ["context", "Recess"], ["created_at", "2015-01-24 16:55:16.682657"], ["creator_id", 4], ["date_time", "2015-01-15 18:10:34 -0600"], ["duration", "4 days"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Organized"], ["location", "Cafeteria"], ["major_or_minor", "minor"], ["possible_function", "Avoid sensory input"], ["staff_responses", "In-school suspension"], ["updated_at", "2015-01-24 16:55:16.682657"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Cervus accommodo tempore. Depono terga alo turpe territo. Truculenter amplitudo bibo pariatur."], ["context", "Whole Class"], ["created_at", "2015-01-24 16:55:16.685622"], ["creator_id", 1], ["date_time", "2015-01-15 21:09:14 -0600"], ["duration", "13 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Organized"], ["location", "Computer Lab"], ["major_or_minor", "minor"], ["possible_function", "Avoid sensory input"], ["staff_responses", "No TV for a month"], ["updated_at", "2015-01-24 16:55:16.685622"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "teachers"[0m
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 4
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["anecdote", "Distinctio ambulo curvo viridis. Crustulum vultuosus sumptus utilis repellendus urbanus vado. Degenero adnuo cenaculum ocer civitas. Dedico sub tollo sui."], ["context", "Recess"], ["created_at", "2015-01-24 16:55:16.689401"], ["creator_id", 5], ["date_time", "2015-01-15 17:05:56 -0600"], ["duration", "1 hour"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Organized"], ["location", "Recess"], ["major_or_minor", "minor"], ["possible_function", "Obtain peer attention"], ["staff_responses", "Phone call home"], ["updated_at", "2015-01-24 16:55:16.689401"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "teachers"
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"   ORDER BY "teachers"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "incidents" ("anecdote", "context", "created_at", "creator_id", "date_time", "duration", "effect_on_behavior", "expectation_violated", "location", "major_or_minor", "possible_function", "staff_responses", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["anecdote", "Bene custodia carpo tondeo patior. Advenio strues tabgo cursus."], ["context", "Walking through hallways"], ["created_at", "2015-01-24 16:55:16.692325"], ["creator_id", 4], ["date_time", "2015-01-14 21:42:11 -0600"], ["duration", "24 minutes"], ["effect_on_behavior", "Student stopped behavior"], ["expectation_violated", "Achieving"], ["location", "Hallway"], ["major_or_minor", "minor"], ["possible_function", "Obtain adult attention"], ["staff_responses", "No TV for a month"], ["updated_at", "2015-01-24 16:55:16.692325"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.696620"], ["updated_at", "2015-01-24 16:55:16.696620"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 15[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 18[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 1[0m  [["incident_id", 16], ["student_id", 19], ["updated_at", "2015-01-24 16:55:16.703507"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.705262"], ["updated_at", "2015-01-24 16:55:16.705262"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 9[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 11[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 2[0m  [["incident_id", 10], ["student_id", 12], ["updated_at", "2015-01-24 16:55:16.733463"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.735588"], ["updated_at", "2015-01-24 16:55:16.735588"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 20[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 3[0m  [["incident_id", 21], ["student_id", 1], ["updated_at", "2015-01-24 16:55:16.739649"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.741259"], ["updated_at", "2015-01-24 16:55:16.741259"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 20[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 4[0m  [["incident_id", 13], ["student_id", 21], ["updated_at", "2015-01-24 16:55:16.744418"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.746127"], ["updated_at", "2015-01-24 16:55:16.746127"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 15[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 13[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 5[0m  [["incident_id", 16], ["student_id", 14], ["updated_at", "2015-01-24 16:55:16.750439"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.752510"], ["updated_at", "2015-01-24 16:55:16.752510"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 26[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 22[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 6[0m  [["incident_id", 27], ["student_id", 23], ["updated_at", "2015-01-24 16:55:16.755908"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.757840"], ["updated_at", "2015-01-24 16:55:16.757840"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 13[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 18[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 7[0m  [["incident_id", 14], ["student_id", 19], ["updated_at", "2015-01-24 16:55:16.761464"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.763166"], ["updated_at", "2015-01-24 16:55:16.763166"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 10[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 18[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 8[0m  [["incident_id", 11], ["student_id", 19], ["updated_at", "2015-01-24 16:55:16.766480"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.768224"], ["updated_at", "2015-01-24 16:55:16.768224"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 19[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 29[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 9[0m  [["incident_id", 20], ["student_id", 30], ["updated_at", "2015-01-24 16:55:16.772015"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.773848"], ["updated_at", "2015-01-24 16:55:16.773848"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 18[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 10[0m  [["incident_id", 2], ["student_id", 19], ["updated_at", "2015-01-24 16:55:16.777267"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.779097"], ["updated_at", "2015-01-24 16:55:16.779097"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 21[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 23[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 11[0m  [["incident_id", 22], ["student_id", 24], ["updated_at", "2015-01-24 16:55:16.782848"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.784566"], ["updated_at", "2015-01-24 16:55:16.784566"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 14[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 25[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 12[0m  [["incident_id", 15], ["student_id", 26], ["updated_at", "2015-01-24 16:55:16.787893"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.789812"], ["updated_at", "2015-01-24 16:55:16.789812"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 14[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 13[0m  [["incident_id", 13], ["student_id", 15], ["updated_at", "2015-01-24 16:55:16.793377"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.795119"], ["updated_at", "2015-01-24 16:55:16.795119"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 25[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 14[0m  [["incident_id", 5], ["student_id", 26], ["updated_at", "2015-01-24 16:55:16.798460"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.800244"], ["updated_at", "2015-01-24 16:55:16.800244"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 27[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 26[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 15[0m  [["incident_id", 28], ["student_id", 27], ["updated_at", "2015-01-24 16:55:16.803839"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.805588"], ["updated_at", "2015-01-24 16:55:16.805588"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 16[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 16[0m  [["incident_id", 4], ["student_id", 17], ["updated_at", "2015-01-24 16:55:16.809095"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.811028"], ["updated_at", "2015-01-24 16:55:16.811028"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 23[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 19[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 17[0m  [["incident_id", 24], ["student_id", 20], ["updated_at", "2015-01-24 16:55:16.814782"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.816456"], ["updated_at", "2015-01-24 16:55:16.816456"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 23[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 18[0m  [["incident_id", 13], ["student_id", 24], ["updated_at", "2015-01-24 16:55:16.819735"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.821358"], ["updated_at", "2015-01-24 16:55:16.821358"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 28[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 18[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 19[0m  [["incident_id", 29], ["student_id", 19], ["updated_at", "2015-01-24 16:55:16.825444"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.827529"], ["updated_at", "2015-01-24 16:55:16.827529"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 23[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 2[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 20[0m  [["incident_id", 24], ["student_id", 3], ["updated_at", "2015-01-24 16:55:16.831004"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.832867"], ["updated_at", "2015-01-24 16:55:16.832867"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 15[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 17[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 21[0m  [["incident_id", 16], ["student_id", 18], ["updated_at", "2015-01-24 16:55:16.836600"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.839020"], ["updated_at", "2015-01-24 16:55:16.839020"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 12[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 22[0m  [["incident_id", 13], ["student_id", 4], ["updated_at", "2015-01-24 16:55:16.842801"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.877582"], ["updated_at", "2015-01-24 16:55:16.877582"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 11[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 28[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 23[0m  [["incident_id", 12], ["student_id", 29], ["updated_at", "2015-01-24 16:55:16.881809"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.883601"], ["updated_at", "2015-01-24 16:55:16.883601"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 5[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 8[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 24[0m  [["incident_id", 6], ["student_id", 9], ["updated_at", "2015-01-24 16:55:16.886773"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.888783"], ["updated_at", "2015-01-24 16:55:16.888783"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 23[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 10[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 25[0m  [["incident_id", 24], ["student_id", 11], ["updated_at", "2015-01-24 16:55:16.891827"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.893541"], ["updated_at", "2015-01-24 16:55:16.893541"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 22[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 7[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 26[0m  [["incident_id", 23], ["student_id", 8], ["updated_at", "2015-01-24 16:55:16.896576"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.898378"], ["updated_at", "2015-01-24 16:55:16.898378"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 23[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 20[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 27[0m  [["incident_id", 24], ["student_id", 21], ["updated_at", "2015-01-24 16:55:16.901395"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.902955"], ["updated_at", "2015-01-24 16:55:16.902955"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 4[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 21[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 28[0m  [["incident_id", 5], ["student_id", 22], ["updated_at", "2015-01-24 16:55:16.905822"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.907338"], ["updated_at", "2015-01-24 16:55:16.907338"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 24[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 3[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 29[0m  [["incident_id", 25], ["student_id", 4], ["updated_at", "2015-01-24 16:55:16.911105"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "student_incidents" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-01-24 16:55:16.912828"], ["updated_at", "2015-01-24 16:55:16.912828"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "incidents"
+  [1m[36mIncident Load (0.1ms)[0m  [1mSELECT  "incidents".* FROM "incidents"   ORDER BY "incidents"."id" ASC LIMIT 1 OFFSET 22[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "students"
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1 OFFSET 9[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 30[0m  [["incident_id", 23], ["student_id", 10], ["updated_at", "2015-01-24 16:55:16.915906"]]
+  [1m[35m (0.7ms)[0m  commit transaction
