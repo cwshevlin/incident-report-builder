@@ -5,5 +5,6 @@ class UserMailer < ActionMailer::Base
   	@teacher = teacher
   	mail(to: @teacher.email, subject: 'Welcome to Stucco')
   end
+
   
 end
