@@ -55,6 +55,5 @@ Rails.application.routes.draw do
   #   end
 
   resources :incidents, :students
-  resources :teacher, module: 'admin'
-
+  resources :teachers # module: 'admin'
 end
