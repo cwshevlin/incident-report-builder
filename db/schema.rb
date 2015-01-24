@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112024953) do
+ActiveRecord::Schema.define(version: 20150124163030) do
 
   create_table "incidents", force: true do |t|
     t.integer  "creator_id"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20150112024953) do
     t.string   "possible_function"
     t.string   "staff_responses"
     t.string   "effect_on_behavior"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.integer  "principal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
