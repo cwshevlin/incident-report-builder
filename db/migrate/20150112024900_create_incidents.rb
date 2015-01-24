@@ -9,9 +9,9 @@ class CreateIncidents < ActiveRecord::Migration
     	t.string  :location
       t.string  :context
       t.string  :duration
-      t.string  :possible_function
-      t.string  :staff_responses
-      t.string  :effect_on_behavior
+      t.text   :possible_function
+      t.text   :staff_responses
+      t.text  :effect_on_behavior
 
       t.timestamps
     end

@@ -8381,3 +8381,4 @@ Migrating to CreateSchools (20150124163030)
   [1m[35m (0.0ms)[0m  begin transaction
   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "student_incidents" SET "incident_id" = ?, "student_id" = ?, "updated_at" = ? WHERE "student_incidents"."id" = 30[0m  [["incident_id", 23], ["student_id", 10], ["updated_at", "2015-01-24 16:55:16.915906"]]
   [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mIncident Load (3.2ms)[0m  [1mSELECT "incidents".* FROM "incidents"[0m
