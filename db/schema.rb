@@ -15,11 +15,16 @@ ActiveRecord::Schema.define(version: 20150112024953) do
 
   create_table "incidents", force: true do |t|
     t.integer  "creator_id"
+    t.string   "date_time"
+    t.string   "expectation_violated"
+    t.string   "major_or_minor"
+    t.text     "anecdote"
     t.string   "location"
-    t.string   "date"
-    t.string   "time"
     t.string   "context"
-    t.text     "narrative"
+    t.string   "duration"
+    t.string   "possible_function"
+    t.string   "staff_responses"
+    t.string   "effect_on_behavior"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,11 +32,6 @@ ActiveRecord::Schema.define(version: 20150112024953) do
   create_table "student_incidents", force: true do |t|
     t.integer  "student_id"
     t.integer  "incident_id"
-    t.string   "duration"
-    t.string   "expectation_violated"
-    t.string   "severity"
-    t.string   "motivation"
-    t.text     "consequence"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20150112024953) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "grade"
-    t.boolean  "iep"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
