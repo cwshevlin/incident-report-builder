@@ -13,7 +13,13 @@ class TeachersController < ApplicationController
 	end
 
 	def create
-
+		teacher = Teacher.new(teacher_params)
+		if teacher.save
+			redirect_to teachers_path
+		else
+			flash[:error] = "Data not valid. Try again"
+			redirect_to :back
+		end
 	end
 
 	def edit
@@ -22,17 +28,18 @@ class TeachersController < ApplicationController
 
 	def update
 		@teacher.update_attributes(teacher_params)
+		redirect_to :back
 	end
 
 	def delete
 		@teacher.destroy
-		redirect_to :root
+		redirect_to teachers_path
 	end
 
 	private
 
-	def incident_params
-		params = [:date_time, :expectation_violated]#, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior]
+	def teacher_params
+		params = [:first_name, :last_name, :email]
 		params.require(:date_time).permit(:expectation_violated) # change to user
 	end
 
