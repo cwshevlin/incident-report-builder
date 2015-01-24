@@ -14,7 +14,7 @@
         <br />
         <% expectations.each do |expectation| %>
             <%= f.check_box(:expectation_violated) %>
-            <%= f.label expectation %>
+            <%= f.label expectation[0] %>
             <br />
         <% end %>
     </p>
@@ -61,5 +61,5 @@
         <%= f.label "Effects on behavior" %>
         <%= select(:incident, :effect_on_behavior, ["Diminished, but still present", "Ceased", "No Effect", "Escalated"], { include_blank: true} ) %>
     </p>
+<%= submit_tag nil, class: "btn btn-primary" %>
     <% end %>
-<%= submit_tag "Create my account", class: "btn btn-primary" %>
