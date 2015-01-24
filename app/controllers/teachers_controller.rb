@@ -4,10 +4,11 @@ class TeachersController < ApplicationController
 	end
 
 	def show
+
 	end
 
 	def new
-		
+
 	end
 
 	def create
@@ -19,9 +20,11 @@ class TeachersController < ApplicationController
 	end
 
 	def update
+
 	end
 
 	def delete
+
 	end
 
 
