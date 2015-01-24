@@ -10,7 +10,7 @@ grades = ["K", "1", "2", "3", "4", "5"]
 locations = ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"]
 contexts = ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"]
 durations = ["5 minutes", "7 minutes", "10 minutes", "13 minutes", "24 minutes", "1 hour", "2 hours", "4 days"]
-expectations = ["S", "O", "A", "R"]
+expectations = ["Successful", "Organized", "Achieving", "Respectful"]
 severity = ["minor", "major"]
 motivations = ["Obtain peer attention", "Obtain adult attention", "Obtain items/activities", "Obtain sensory input", "Avoid peers", "Avoid adult", "Avoid task/activity", "Avoid sensory input", "Emoting", "Unable to determine", "Other"]
 consequences = ["In-school suspension", "Out-of-school suspension", "Phone call home", "No TV for a month"]
@@ -54,6 +54,8 @@ end
 	student_incident.student_id = student.id
 	student_incident.save
 end
+
+
 
 
 
