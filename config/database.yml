@@ -23,3 +23,31 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+# uncomment the following and rake db:migrate to convert to pg
+# development:
+#   adapter: postgresql
+#   encoding: utf8
+#   database: stucco_dev
+#   pool: 5
+#   username: 
+#   password:
+
+# test: &TEST
+#   adapter: postgresql
+#   encoding: utf8
+#   database: stucco_test
+#   pool: 5
+#   username: 
+#   password:
+
+# production:
+#   adapter: postgresql
+#   encoding: utf8
+#   database: stucco_prod
+#   pool: 5
+#   username: 
+#   password:
+
+# cucumber:
+#   <<: *TEST
