@@ -32,8 +32,10 @@ def random_student
 end
 
 for i in 1..5
-	Teacher.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: i.to_s )
+	Teacher.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email )
 end
+
+	Teacher.create(first_name: "Colin", last_name: "Shevlin", email: "cwshevlin@gmail.com")
 
 for i in 1..30
 	student = Student.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, grade: grades.sample)
