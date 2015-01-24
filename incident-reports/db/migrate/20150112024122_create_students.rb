@@ -5,7 +5,6 @@ class CreateStudents < ActiveRecord::Migration
     	t.string  :first_name
     	t.string  :last_name
     	t.string  :grade
-    	t.boolean :iep
 
       t.timestamps
     end
