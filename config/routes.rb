@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-
+  resources :incidents, :students
+  resources :teacher, module: 'admin'
 
 end
