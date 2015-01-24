@@ -13,16 +13,12 @@
         <%= f.label "Expectation violated" %>
         <br />
         <% expectations.each do |expectation| %>
-            <%= f.check_box(:expectation_violated[expectation[1]]) %>
+            <%= f.check_box(:expectation_violated) %>
             <%= f.label expectation %>
             <br />
         <% end %>
     </p>
-
-    <%= submit_tag "Create my account", class: "btn btn-primary" %>
-<% end %>
-
-<!--     <p>
+   <p>
         <%= f.label "Severity" %>
         <%= select(:incident, :major_or_minor, ["Minor", "Major"], { include_blank: false }) %>
     </p>
@@ -64,4 +60,6 @@
     <p>
         <%= f.label "Effects on behavior" %>
         <%= select(:incident, :effect_on_behavior, ["Diminished, but still present", "Ceased", "No Effect", "Escalated"], { include_blank: true} ) %>
-    </p> -->
+    </p>
+    <% end %>
+<%= submit_tag "Create my account", class: "btn btn-primary" %>
