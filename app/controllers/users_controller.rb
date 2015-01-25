@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-			flash[:success] = "Welcome to the Test Randomizer!"
+			flash[:success] = "Welcome!"
   		redirect_to @user
     else
       render 'new'

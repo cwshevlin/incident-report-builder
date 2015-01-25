@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   resources :incidents, :students
   resources :teachers # module: 'admin'
   resources :users
+  get     'users/:id', to: redirect('/incidents')
   get     'signup'  => 'users#new'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
