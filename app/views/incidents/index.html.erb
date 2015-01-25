@@ -1,7 +1,7 @@
 <h1> All Incidents </h1>
 
 <% @incidents.each do |incident| %>
-	<h3><%= incident.location %> on <%= incident.date_time %></h3>
+	<h3><%= link_to "#{incident.location} on #{incident.date_time}", incident_path(incident)%></h3>
 	<h5> Students involved:</h5>
 	<ul>
 		<% incident.students.each do |student| %>

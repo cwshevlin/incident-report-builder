@@ -2,6 +2,10 @@
 
 <canvas id="myChart" width="400" height="400"></canvas>
 
+<div class="incidents">
+<ul>
 <% @student.incidents.each do |incident| %>
-	<h1>Incident created at <%=@incident.created_at%> by <%=@incident.teacher%></h1>
+	<h1><%= link_to "Incident created at #{incident.created_at} by #{incident.creator.first_name} #{incident.creator.last_name}", incident_path(incident)%></h1>
 <% end %> 
+<ul>
+	</div>
