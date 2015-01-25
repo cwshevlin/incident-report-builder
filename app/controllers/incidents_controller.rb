@@ -38,8 +38,7 @@ class IncidentsController < ApplicationController
 
 	private
 
-		def incident_params
-			params = [:date_time, :expectation_violated, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior]
-			params.require(:date_time).permit(:expectation_violated) # change to user
-		end
+	def incident_params
+		params.require(:incident).permit(:creator_id, :date_time, :expectation_vioated, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior) # change to user
+	end
 end
