@@ -5,7 +5,7 @@
 <div class="incidents">
 <ul>
 <% @student.incidents.each do |incident| %>
-	<h1><%= link_to "Incident created at #{incident.created_at} by #{incident.creator.first_name} #{incident.creator.last_name}", incident_path(incident)%></h1>
+	<p><%= link_to "Incident created at #{incident.created_at} by #{incident.creator.first_name} #{incident.creator.last_name}", incident_path(incident)%></p>
 <% end %> 
 <ul>
 	</div>
