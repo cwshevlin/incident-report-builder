@@ -13,8 +13,6 @@ class IncidentsController < ApplicationController
 	end
 
 	def create
-		puts "___________________"
-		p incident_params
 		@incident = Incident.new(incident_params)
 
 		if @incident.save
