@@ -5,61 +5,51 @@
 <%= form_for @incident do |f| %>
     <%= render 'shared/incident_error_messages' %>
     
-    <p>
         <%= f.label "Date" %>
-        <%= f.datetime_field :date_time %>
-    </p>
-    <p>
+        <%= f.datetime_field :date_time, class: "form-control" %>
+    
         <%= f.label "Expectation violated" %>
-        <br />
+        <br>
         <% expectations.each do |expectation| %>
-            <%= f.check_box(:expectation_violated) %>
+            <%= f.check_box(:expectation_violated, ) %>
             <%= f.label expectation[0] %>
-            <br />
+        <br>
         <% end %>
-    </p>
-   <p>
+   
         <%= f.label "Severity" %>
-        <%= f.select(:major_or_minor, ["Minor", "Major"], { include_blank: false }) %>
-    </p>
-    <p>
+        <%= f.select(:major_or_minor, ["Minor", "Major"], { include_blank: false }, class: "form-control") %>
+        <br>
         <%= f.label "Description of problem/situation" %>
-        <%= f.text_area :anecdote %>
-    </p>
-    <p>
+        <%= f.text_area :anecdote, class: "form-control" %>
+        <br>
         <%= label_tag "Location (if classroom indicate subject of class)" %>
-        <%= f.select(:location, ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"], { include_blank: true }) %>
-        <%= f.text_field :location, placeholder: "Subject of Class" %>
-    </p>
-    <p>
+        <%= f.select(:location, ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"], { include_blank: true }, class: "form-control") %>
+        <br>
+        <%= f.text_field :location, placeholder: "Subject of Class", class: "form-control" %>
+        <br>
         <%= f.label "Setting" %>
-        <%= f.select(:context, ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"], { include_blank: true }) %>
-    </p>
-    <p>
+        <%= f.select(:context, ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"], { include_blank: true }, class: "form-control") %>
+        <br>
         <%= f.label "Duration" %>
-        <%= f.select(:duration, ["Less than 5 minutes", "5-15 minutes", "15-30 minutes", "30-60 minutes", "> 1 hour"], { include_blank: true }) %>
-    </p>
-    <p>
+        <%= f.select(:duration, ["Less than 5 minutes", "5-15 minutes", "15-30 minutes", "30-60 minutes", "> 1 hour"], { include_blank: true }, class: "form-control") %>
+        <br>
         <%= f.label "Possible functions" %>
-        <br />
         <% functions.each do |function| %>
-            <%= f.label function %>
             <%= check_box_tag function %>
-        </br>
+            <%= f.label function %>
+        <br>
         <% end %>
-    </p>
-    <p>
+    
         <%= f.label "Staff responses" %>
-        <br />
+        <br>
         <% responses.each do |response| %>
-            <%= f.label response %>
             <%= check_box_tag response %>
-            <br />
+            <%= f.label response %>
+            <br>
         <% end %>
-    </p>
-    <p>
+        <br>
         <%= f.label "Effects on behavior" %>
         <%= f.select(:effect_on_behavior, ["Diminished, but still present", "Ceased", "No Effect", "Escalated"], { include_blank: true} ) %>
-    </p>
+        <br>
 <%= f.submit class: "btn btn-primary" %>
     <% end %>
