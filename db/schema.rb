@@ -13,10 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20150125014146) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "incidents", force: true do |t|
     t.integer  "creator_id"
     t.string   "date_time"
-    t.text     "expectation_violated", limit: 255
+    t.text     "expectation_violated"
     t.string   "major_or_minor"
     t.text     "anecdote"
     t.string   "location"
@@ -75,6 +78,6 @@ ActiveRecord::Schema.define(version: 20150125014146) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
