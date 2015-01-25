@@ -13,10 +13,12 @@ class IncidentsController < ApplicationController
 	end
 
 	def create
+		puts "___________________"
+		p incident_params
 		@incident = Incident.new(incident_params)
 
 		if @incident.save
-			redirect_to root_path
+			redirect_to incidents_path
 		else
 			render 'new'
 		end
@@ -32,13 +34,13 @@ class IncidentsController < ApplicationController
 
 	def delete
 		@incident.destroy
-		redirect_to incident_path
+		redirect_to incidents_path
 	end
 
 
 	private
 
 	def incident_params
-		params.require(:incident).permit(:creator_id, :date_time, :expectation_vioated, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior) # change to user
+		params.require(:incident).permit(:creator_id, :date_time, :expectation_violated, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior) # change to user
 	end
 end

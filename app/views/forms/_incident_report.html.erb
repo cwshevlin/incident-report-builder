@@ -2,7 +2,7 @@
 <% functions = ["Obtain peer attention", "Obtain adult attention", "Obtain items/activities", "Obtain sensory input", "Avoid peers", "Avoid adult", "Avoid task or activity", "Avoid sensory input", "Unable to determine", "Other"] %>
 <% responses = ["Verbal reminders (problem-solving cues)", "Time out", "Reflection sheet", "Peer mediation", "Loss of privilege", "Proximity controls", "Removal to other room ", "Change seat", "Call to parents", "Lunch Detention", "After-school Detention", "Physical hold" ] %>
 
-<%= form_for(@incident) do |f| %>
+<%= form_for @incident do |f| %>
     <%= render 'shared/incident_error_messages' %>
     
     <p>
@@ -20,7 +20,7 @@
     </p>
    <p>
         <%= f.label "Severity" %>
-        <%= select(:incident, :major_or_minor, ["Minor", "Major"], { include_blank: false }) %>
+        <%= f.select(:major_or_minor, ["Minor", "Major"], { include_blank: false }) %>
     </p>
     <p>
         <%= f.label "Description of problem/situation" %>
@@ -28,23 +28,23 @@
     </p>
     <p>
         <%= label_tag "Location (if classroom indicate subject of class)" %>
-        <%= select(:incident, :location, ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"], { include_blank: true }) %>
+        <%= f.select(:location, ["Lunchroom", "Cafeteria", "Hallway", "Classroom", "Recess", "Computer Lab", "Science Lab", "Bilingual Room", "Counselor's Office"], { include_blank: true }) %>
         <%= f.text_field :location, placeholder: "Subject of Class" %>
     </p>
     <p>
         <%= f.label "Setting" %>
-        <%= select(:incident, :context, ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"], { include_blank: true }) %>
+        <%= f.select(:context, ["Small Group", "Whole Class", "Transition Time", "Walking through hallways", "Recess", "Lunch", "Independent Work"], { include_blank: true }) %>
     </p>
     <p>
         <%= f.label "Duration" %>
-        <%= select(:incident, :duration, ["Less than 5 minutes", "5-15 minutes", "15-30 minutes", "30-60 minutes", "> 1 hour"], { include_blank: true }) %>
+        <%= f.select(:duration, ["Less than 5 minutes", "5-15 minutes", "15-30 minutes", "30-60 minutes", "> 1 hour"], { include_blank: true }) %>
     </p>
     <p>
         <%= f.label "Possible functions" %>
         <br />
         <% functions.each do |function| %>
             <%= f.label function %>
-            <%= check_box_tag :incident, function %>
+            <%= check_box_tag function %>
         </br>
         <% end %>
     </p>
@@ -53,13 +53,13 @@
         <br />
         <% responses.each do |response| %>
             <%= f.label response %>
-            <%= check_box_tag :incident, response %>
+            <%= check_box_tag response %>
             <br />
         <% end %>
     </p>
     <p>
         <%= f.label "Effects on behavior" %>
-        <%= select(:incident, :effect_on_behavior, ["Diminished, but still present", "Ceased", "No Effect", "Escalated"], { include_blank: true} ) %>
+        <%= f.select(:effect_on_behavior, ["Diminished, but still present", "Ceased", "No Effect", "Escalated"], { include_blank: true} ) %>
     </p>
-<%= submit_tag nil, class: "btn btn-primary" %>
+<%= f.submit class: "btn btn-primary" %>
     <% end %>
