@@ -1,0 +1,16 @@
+<nav id="sidebar">
+  <%= link_to root_path do %>
+  <h3 id="stucco">Stucco</h3>
+  <% end %>
+  <br>
+      <%= link_to "Create Incident", new_student_path %>
+  <br>
+    <%= link_to "All Incidents", incidents_path %>
+  <br>
+      <%= link_to "Create Student", new_quiz_path %>
+  <br>
+    <%= link_to "All Students", students_path %>
+  <br>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  </ul>
+ </nav>
