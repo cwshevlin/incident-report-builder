@@ -6,8 +6,8 @@
     <%= render 'shared/incident_error_messages' %>
     
         <%= f.label "Date" %>
-        <%= f.datetime_field :date_time, class: "form-control" %>
-    
+        <%= f.datetime_select(:date_time, options: {ampm: true, discard_type: true}, html: {class: "form-control"}) %>
+        <br>
         <%= f.label "Expectation violated" %>
         <br>
         <% expectations.each do |expectation| %>
@@ -53,3 +53,4 @@
         <br>
 <%= f.submit class: "btn btn-primary" %>
     <% end %>
+    <br>
