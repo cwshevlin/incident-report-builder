@@ -20,5 +20,10 @@
     and (max-device-width: 641px), 
     only screen and (max-device-width: 668px), 
     only screen and (max-width: 480px){
+
+#myChart{
+	max-width: 100%;
+	margin: 0 auto;
+}
 }
 
