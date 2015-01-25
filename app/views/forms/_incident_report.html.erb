@@ -3,7 +3,7 @@
 <% responses = ["Verbal reminders (problem-solving cues)", "Time out", "Reflection sheet", "Peer mediation", "Loss of privilege", "Proximity controls", "Removal to other room ", "Change seat", "Call to parents", "Lunch Detention", "After-school Detention", "Physical hold" ] %>
 
 <%= form_for(@incident) do |f| %>
-    <%= render 'shared/error_messages' %>
+    <%= render 'shared/incident_error_messages' %>
     
     <p>
         <%= f.label "Date" %>
