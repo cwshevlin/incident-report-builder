@@ -5,7 +5,7 @@
 	<h5> Students involved:</h5>
 	<ul>
 		<% incident.students.each do |student| %>
-		<li><%= student.first_name %> <%= student.last_name %></li>
+		<li><%= link_to "#{student.first_name} #{student.last_name}", student_path(student)%></li>
 	<% end %>
 	</ul>
 <% end %>
