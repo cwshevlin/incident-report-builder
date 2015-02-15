@@ -13,7 +13,10 @@ class IncidentsController < ApplicationController
 	end
 
 	def create
-		@incident = Incident.new(incident_params)
+		date = "#{incident_params["date_time(2i)"]} - #{incident_params["date_time(3i)"]} - #{incident_params["date_time(1i)"]}, "
+		time = "#{incident_params["date_time(4i)"]}:#{incident_params["date_time(4i)"]}"
+		
+		@incident = Incident.new(date_time: date + time, expectation_violated: params[:expectation_violated], major_or_minor:)
 
 		if @incident.save
 			redirect_to incidents_path
@@ -39,6 +42,6 @@ class IncidentsController < ApplicationController
 	private
 
 	def incident_params
-		params.require(:incident).permit(:creator_id, :date_time, :expectation_violated, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior) # change to user
+		params.require(:incident).permit(:creator_id, :date_time, :expectation_violated, :major_or_minor, :anecdote, :location, :context, :duration, :possible_function, :staff_responses, :effect_on_behavior)
 	end
 end
