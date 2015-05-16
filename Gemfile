@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'sprockets-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -31,6 +31,7 @@ gem 'faker'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'rails_12factor'
+gem "chartkick"
 
 # Use unicorn as the app server
 # gem 'unicorn'

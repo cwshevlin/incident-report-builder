@@ -57,10 +57,3 @@ end
 	student_incident.save
 end
 
-
-
-
-
-
-
-
